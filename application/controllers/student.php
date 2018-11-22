@@ -2,24 +2,27 @@
 
 class Student extends CI_Controller{
 
+    function __construct(){
+        parent::__construct();
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->load->model('studentModel');
+    }
+
+
+
     public function index(){
-
-        $this->load->view('pages/student_view');
+        $data['students'] = $this->studentModel->getAllStudents();       
+       
+        $this->load->view('students/index', $data);
     }
 
-    public function show(){
-        // $this->load->model('studentModel');
+    public function add(){
 
-        $result = $this->studentModel->getStudents();
-
-        foreach ($result as $key) {
-           echo $key->name;
-           echo $key->phone;
-           echo $key->email;
-        }
-
-
+        $this->load->view('students/add-edit');
     }
+
+
 }
 
 ?>
