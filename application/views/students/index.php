@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-default ">
-                <div class="panel-heading">Posts <a href="<?php echo site_url('student/add/'); ?>" class="glyphicon glyphicon-plus pull-right" ></a></div>
+                <div class="panel-heading">Posts <a href="<?php echo site_url('student/add'); ?>" class="glyphicon glyphicon-plus pull-right" ></a></div>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -34,13 +34,13 @@
                     foreach($students as $student):
                     ?>
                     <tr>
-                    <td><?php echo $student->name; ?></td>
-                    <td><?php echo $student->email; ?></td>
-                    <td><?php echo $student->phone; ?></td>
+                    <td><?php echo $student['name']; ?></td>
+                    <td><?php echo $student['email']; ?></td>
+                    <td><?php echo $student['phone']; ?></td>
                     <td>
-                    <a href="<?php echo site_url('students/view/'.$student->id); ?>" class="glyphicon glyphicon-eye-open"></a>
-                    <a href="<?php echo site_url('students/edit/'.$student->id); ?>" class="glyphicon glyphicon-edit"></a>
-                    <a href="<?php echo site_url('students/delete/'.$student->id); ?>" class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete?')"></a>
+                    <a href="<?php echo site_url('student/view/'.$student['id']); ?>" class="glyphicon glyphicon-eye-open"></a>
+                    <a href="<?php echo site_url('student/edit/'.$student['id']); ?>" class="glyphicon glyphicon-edit"></a>
+                    <a href="<?php echo site_url('student/delete/'.$student['id']); ?>" class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete?')"></a>
                     </td>
                     </tr>
                     <?php endforeach; ?>
